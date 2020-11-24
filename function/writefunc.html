@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="test"
+      style="
+        width: 500px;
+        height: 200px;
+        margin-left: 30%;
+        background-color: bisque;
+      "
+    ></div>
+    <button onclick="append()">append</button>
+    <br />
+    <button onclick="after()">after</button>
+    <br />
+    <button onclick="before()">before</button>
+    <script>
+      function append() {
+        document.getElementById("test").append("append");
+      }
+      function after() {
+        document.getElementById("test").after("after");
+      }
+      function before() {
+        document.getElementById("test").before("before");
+      }
+    </script>
+  </body>
+</html>
