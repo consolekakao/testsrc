@@ -11,17 +11,18 @@ function call example
   </head>
   <body>
     <input type="text" id="one" value="1" /> <br />
-    <button onclick="testfunc()">BTN</button>
+    <button onclick="testfunc()" id="btn">BTN</button>
     <input type="text" onchange="change()" name="tbox" />
     <input type="text" />
     <script>
       function testfunc() {
         var result = document.getElementById("one");
         result.value++;
-      }
-
-      function change() {
-        alert("값 바뀜");
+        if (result.value == 5) {
+          alert("5임");
+          result.value = 0;
+          document.getElementById("btn").remove();
+        }
       }
     </script>
   </body>
