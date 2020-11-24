@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="id" />
+    <br />
+    <input type="text" id="pw" /><br />
+    <button onclick="checklogin()">Login</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <input type="text" id="timer" value="4" />
+    <button onclick="timer()">timer</button>
+    <script>
+      function timer() {
+        setInterval(function () {
+          var time = document.getElementById("timer").value--;
+
+          if (time.value == 0) {
+            alert("시간초과");
+          }
+        }, 1000);
+
+        var okid = "abcd";
+        var okpw = "1234";
+      }
+      function checklogin() {
+        function checklogin() {
+          var inputid = document.getElementById("id").value;
+          var inputpw = document.getElementById("pw").value;
+          if (okid == inputid && okpw == inputpw) alert("로그인 성공");
+          else alert("로그인 실패");
+        }
+      }
+    </script>
+  </body>
+</html>

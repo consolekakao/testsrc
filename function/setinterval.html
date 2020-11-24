@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <input type="text" value="100" id="timer" />
+    <button onclick="timer()">스탑워치 시작</button>
+    <script>
+      function timer() {
+        setInterval(function () {
+          document.getElementById("timer").value--;
+          if (document.getElementById("timer").value == 95)
+            alert("스탑워치 종료");
+        }, 1000);
+      }
+
+      //   setInterval(function(){
+      //         이벤트
+      //   },시간   1000= 1초)
+    </script>
+  </body>
+</html>
