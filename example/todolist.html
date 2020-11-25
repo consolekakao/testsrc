@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="todo"
+      style="
+        height: 300px;
+        width: 400px;
+        background-color: aquamarine;
+        overflow: scroll;
+      "
+    ></div>
+
+    <input type="text" id="text" placeholder="일정을 입력하세요." />
+    <button onclick="addEvent(document.getElementById('text'))">
+      일정등록
+    </button>
+
+    <script>
+      function addEvent(event) {
+        //   document.getElementById("todo").append(event.value);
+        // document.getElementById("todo").innerHTML += "<br/>";
+        document.getElementById("todo").innerHTML +=
+          "<div onclick='this.remove()'>" + event.value + "</div>";
+        event.value = "";
+      }
+
+      var text = document.getElementById("text");
+      text.addEventListener("keyup", function (event) {
+        if (event.keyCode == 13) {
+          addEvent(document.getElementById("text"));
+        }
+      });
+    </script>
+  </body>
+</html>
