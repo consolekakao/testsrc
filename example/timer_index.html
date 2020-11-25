@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<body>
+  <input type="text" id="min" value="0">
+  <br>
+  <br>
+  <input type="text" id="sec" value="0">
+  <br><br>
+  <input type="text" id="hour" value="0">
+  <button onclick="starttimer()">start</button>
+
+
+
+  <script>
+    function starttimer(){
+      var min = document.getElementById("min");
+      var sec = document.getElementById("sec");
+      var hour = document.getElementById("hour")
+
+      var interval = setInterval(function(){
+        if(hour.value == 2){
+          clearInterval(interval);
+          sec.value == 0;
+          min.value == 0;
+        }
+
+        if(sec.value == 2){
+          min.value++;
+          if(min.value == 2){
+            hour.value++;
+            min.value = 0;
+          }
+          sec.value = 0
+
+        }
+        sec.value++;
+      },1000)
+
+    }
+
+  </script>
+
+</body>
+</html>
