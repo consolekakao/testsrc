@@ -22,9 +22,18 @@
     </button>
 
     <script>
+      var badword = ["시발", "씨발", "개새끼", "밍뭉맹"];
+      var count = badword.length;
+
       function addEvent(event) {
-        //   document.getElementById("todo").append(event.value);
-        // document.getElementById("todo").innerHTML += "<br/>";
+        for (var i = 0; i < count; i++) {
+          if (event.value.includes(badword[i])) {
+            for (var j = 0; j < event.value.length; j++) {
+              event.value = event.value.replace(badword[i], "*");
+            }
+          }
+        }
+
         document.getElementById("todo").innerHTML +=
           "<div onclick='this.remove()'>" + event.value + "</div>";
         event.value = "";
