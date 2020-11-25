@@ -6,31 +6,36 @@
   <title>Document</title>
 </head>
 
-
+<!-- 주석만 달고 오늘 다시 만들어보기_201125 -->
 <body>
-  <input type="text" id="min" value="0">
-  <br>
-  <br>
+  <!-- value: 기본 시작 값 -->
   <input type="text" id="sec" value="0">
   <br><br>
+  <input type="text" id="min" value="0">
+  <br><br>
   <input type="text" id="hour" value="0">
+  <!-- 클릭하면 타이머 시작 -->
   <button onclick="starttimer()">start</button>
 
 
 
   <script>
     function starttimer(){
-      var min = document.getElementById("min");
       var sec = document.getElementById("sec");
+      var min = document.getElementById("min");
       var hour = document.getElementById("hour")
 
-      var interval = setInterval(function(){
+      // setInterval: 계속 올라가게 하기
+      var interval = setInterval(function(){ 
+        // value 값이 2가 되면 실행: true(논리형)
         if(hour.value == 2){
+          // clearInterval: 2되면 sec, min = 0
           clearInterval(interval);
           sec.value == 0;
           min.value == 0;
         }
 
+        // sec가 2면 min ++시키기 > min이 2가 되면 hour ++, min이랑 sec 각각 0 만들기
         if(sec.value == 2){
           min.value++;
           if(min.value == 2){
@@ -41,7 +46,8 @@
 
         }
         sec.value++;
-      },1000)
+        // 1000 == 1sec
+      },1000) 
 
     }
 
