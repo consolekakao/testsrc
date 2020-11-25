@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="hour" value="0" /> &nbsp; 시
+
+    <input type="text" id="mit" value="0" /> &nbsp; 분
+    <input type="text" id="sec" value="0" /> &nbsp; 초
+
+    <button onclick="starttimer()">timerstart</button>
+
+    <script>
+      function starttimer() {
+        var mit = document.getElementById("mit");
+        var sec = document.getElementById("sec");
+        var hour = document.getElementById("hour");
+        var interval = setInterval(function () {
+          if (hour.value == 2) {
+            clearInterval(interval);
+            sec.value = 0;
+            mit.value = 0;
+          }
+
+          if (sec.value == 2) {
+            mit.value++;
+            if (mit.value == 2) {
+              hour.value++;
+              mit.value = 0;
+            }
+            sec.value = 0;
+          }
+          sec.value++;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
