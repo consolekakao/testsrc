@@ -25,7 +25,6 @@
       var badword = ["시발", "씨발", "개새끼", "si발", "새77ㅣ"];
       var count = badword.length;
 
-      // 파라미터로 넘겨주면 코드 보기 쉬움
       function addEvent(event) {
         for (var i = 0; i < count; i++) {
           if (event.value.includes(badword[i])) {
@@ -34,9 +33,7 @@
             }
           }
         }
-        // event.value = event.value.replace(/시발/gi,"*")
 
-        // this: 대상을 '나'로 지정한다.
         document.getElementById("todo").innerHTML +=
           "<div onclick='this.remove()'>" + event.value + "</div>";
         event.value = "";
@@ -54,5 +51,3 @@
 
 <!-- // document.getElementById("todo").append(event.value);
       // document.getElementById("todo").innerHTML += "<br/>"; -->
-
->>>>>>> origin/study_jiyeong
