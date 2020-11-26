@@ -1,0 +1,28 @@
+<!--
+function call example
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="one" value="1" /> <br />
+    <button onclick="testfunc()">BTN</button>
+    <input type="text" onchange="change()" name="tbox" />
+    <input type="text" />
+    <script>
+      function testfunc() {
+        var result = document.getElementById("one");
+        result.value++;
+      }
+
+      function change() {
+        alert("값 바뀜");
+      }
+    </script>
+  </body>
+</html>
