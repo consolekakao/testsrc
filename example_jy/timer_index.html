@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      text-align: center;
+      background-color: #2b2935;
+      font-family: sans-serif;
+      color: #ffffff;
+    }
+    /* header area */
+    h1 { 
+      margin-top: 100px;
+      font-size: 60px; 
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    hr { 
+      width: 100px; 
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border: 1px solid #514b73;
+    }
+    p {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    /* timer area */
+    #timer_wrap {
+      margin: 0 auto;
+      margin-top: 130px;
+      font-size: 144px;
+    }
+    #hour, #min, #sec {
+      display: inline-block;
+    }
+    .btn {
+      margin: 0 auto;
+      margin: 50px 15px;
+      width: 130px;
+      height: 50px;
+      font-size: 24px;
+      color: #ffffff;
+      border-radius: 50px;
+      background-color: #514b73;
+      outline: none;
+      border: 0;
+      box-shadow: 0px 2px 10px rgb(22, 20, 27);
+      transition: all 0.18s;
+    }
+    .btn:hover {
+      background-color: #ffffff;
+      color: #514b73;
+      outline: none;
+      transition-timing-function: ease-in-out;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+    <h1>STOPWATCH</h1>
+    <hr>
+    <p>set your own time</p>
+
+  <section id="timer_wrap">
+    <div id="hour">00</div>
+    <span class="timer">:</span>
+    <div id="min">00</div>
+    <span class="timer">:</span>
+    <div id="sec">00</div>
+  </section>
+
+  <button class="btn" id="btn_start" onclick="btn_start()">Start</button>
+  <button class="btn" id="btn_stop" onclick="btn_stop()">Stop</button>
+  <button class="btn" id="btn_reset" onclick="btn_reset()">Reset</button>
+
+
+
+  <script>
+    // innerText: 읽을 수 있는 것만
+    // innerHTML: 태그까지 
+    // 스코프: 밖으로 빼서 선언
+    
+    var interval;
+    var hour = document.getElementById("hour");
+    var min = document.getElementById("min");
+    var sec = document.getElementById("sec");
+    
+    function btn_start(){
+      interval = setInterval(function () {
+ // 한 줄이면 괄호 없애도 ok
+          if (sec.innerText == 60) {
+            min.innerText++;
+            if(min.innerText.length == 1) min.innerText = "0" + min.innerText;
+
+            if (min.innerText == 60) {
+              hour.innerText++;
+              if(hour.innerText.length == 1) hour.innerText = "0" + hour.innerText;
+              min.innerText = 0;
+            }
+            sec.innerText = 0;
+          }
+          sec.innerText++;
+          if(sec.innerText.length == 1) sec.innerText = "0" + sec.innerText;
+        }, 10);
+      }
+
+    function btn_stop(){
+      clearInterval(interval);
+    }
+
+    function btn_reset(){
+      clearInterval(interval);
+      hour.innerText = "0" + 0;
+      min.innerText = "0" + 0;
+      sec.innerText = "0" + 0;
+    }
+  </script>
+</body>
+</html>
