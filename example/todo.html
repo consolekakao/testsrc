@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="todo"
+      style="
+        overflow: scroll;
+        height: 300px;
+        width: 200px;
+        background-color: yellowgreen;
+      "
+    ></div>
+
+    <input type="text" id="text-box" placeholder="일정을 입력하세요." />
+    <button onclick="addEvent(document.getElementById('text-box'))">
+      일정등록
+    </button>
+
+    <script>
+      var badword = ["시발", "씨발", "개새끼", "si발", "새77ㅣ"];
+      var count = badword.length;
+
+      function addEvent(event) {
+        for (var i = 0; i < count; i++) {
+          if (event.value.includes(badword[i])) {
+            for (var j = 0; j < event.value.length; j++) {
+              event.value = event.value.replace(badword[i], "*");
+            }
+          }
+        }
+
+        document.getElementById("todo").innerHTML +=
+          "<div onclick='this.remove()'>" + event.value + "</div>";
+        event.value = "";
+      }
+
+      var text = document.getElementById("text-box");
+      text.addEventListener("keyup", function (event) {
+        if (event.keyCode == 13) {
+          addEvent(document.getElementById("text-box"));
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var input = prompt("가위:1 바위:2 보:3");
+      var min = Math.ceil(1);
+      var max = Math.floor(3);
+      var output = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      if (input == output)
+        console.log("내가낸거 : " + input + "com : " + output + "  무승부다");
+      else if (input == 1 && output == 2)
+        console.log("내가낸거 : " + input + "com : " + output + "  졌다");
+      else if (input == 1 && output == 3)
+        console.log("내가낸거 : " + input + "com : " + output + "  이겼다");
+      else if (input == 2 && output == 1)
+        console.log("내가낸거 : " + input + "com : " + output + "  이겼다");
+      else if (input == 2 && output == 3)
+        console.log("내가낸거 : " + input + "com : " + output + "  졌다");
+      else if (input == 3 && output == 1)
+        console.log("내가낸거 : " + input + "com : " + output + "  졌다");
+      else if (input == 3 && output == 2)
+        console.log("내가낸거 : " + input + "com : " + output + "  이겼다");
+    </script>
+  </body>
+</html>
