@@ -61,7 +61,7 @@
     }
     .btn:hover {
       background-color: #ffffff;
-      color: var(--main-color);
+      color: #514b73;
       outline: none;
       transition-timing-function: ease-in-out;
       cursor: pointer;
@@ -92,81 +92,44 @@
 
 
   <script>
-    function startTimer(){
+    // innerText: 읽을 수 있는 것만
+    // innerHTML: 태그까지 
+    // 스코프: 밖으로 빼서 선언
+    
+    var interval;
+    var hour = document.getElementById("hour");
+    var min = document.getElementById("min");
+    var sec = document.getElementById("sec");
+    
+    function btn_start(){
+      interval = setInterval(function () {
+ // 한 줄이면 괄호 없애도 ok
+          if (sec.innerText == 60) {
+            min.innerText++;
+            if(min.innerText.length == 1) min.innerText = "0" + min.innerText;
 
-      var hour = 00;
-      var min = 00;
-      var sec = 00;
+            if (min.innerText == 60) {
+              hour.innerText++;
+              if(hour.innerText.length == 1) hour.innerText = "0" + hour.innerText;
+              min.innerText = 0;
+            }
+            sec.innerText = 0;
+          }
+          sec.innerText++;
+          if(sec.innerText.length == 1) sec.innerText = "0" + sec.innerText;
+        }, 10);
+      }
 
-      var startHour = document.getElementById("hour");
-      var startMin = document.getElementById("min");
-      var startSec = document.getElementById("sec");
-      
-      var btn_start = document.getElementById("btn_start");
-      var btn_stop = document.getElementById("btn_stop");
-      var btn_reset = document.getElementById("btn_reset");
-      // var interval ; < 왜이렇게 들어가는지 몰겠음
+    function btn_stop(){
+      clearInterval(interval);
     }
 
+    function btn_reset(){
+      clearInterval(interval);
+      hour.innerText = "0" + 0;
+      min.innerText = "0" + 0;
+      sec.innerText = "0" + 0;
+    }
   </script>
 </body>
 </html>
-
-
-<!-- 사이트에서 보고 참고한 것
-  
-  btn_start.onclick = function(){
-  clearInterval(interval);
-  interval = setInterval(startTimer, 10);
-}
-
-btn_stop.onclick = function(){
-  clearInterval(interval);
-}
-
-btn_reset.onclick = function(){
-  clearInterval(interval);
-  hour = "00";
-  min = "00";
-  sec = "00";
-  startHour.innerHtml = hour;
-  startMin.innerHtml = min;
-  startSec.innerHtml = sec;
-}
-
-function startTimer(){
-  sec++;
-
-  if(sec < 9){
-    startSec.innerHtml = "0" + sec;
-  }
-  if(sec > 9){
-    startSec.innerHtml = sec;
-  }
-
-
-  if(sec > 99){
-    min++;
-    startMin.innerHtml = "0" + min;
-    sec = 0;
-    startSec.innerHtml = "0" + 0;
-  }
-  if(min > 9){
-    startMin.innerHtml = min;
-  }
-
-
-  if(min < 9){
-    startSec.innerHtml = "0" + sec;
-  }
-  if(min > 9){
-    startSec.innerHtml = sec;
-  }
-  if(min > 99){
-    console.log("sec");
-    startHour.innerHtml = "0" + hour;
-    min = 0;
-    startMin.innerHtml = "0" + 0;
-  }
-}
-} -->
