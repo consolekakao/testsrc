@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div id="date">0000</div> <br/>
-  <div id="clock">0000</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="date">0000</div>
+    <br />
+    <div id="clock">0000</div>
 
+    <script>
+      setInterval(function () {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
 
-  <script>
+        var calendar = document.getElementById("date");
+        var time = document.getElementById("clock");
 
-    setInterval(function(){
-      var now = new Date();
-      var year = now.getFullYear();
-      var month = now.getMonth() + 1;
-      var date = now.getDate();
-      var hour = now.getHours();
-      var min = now.getMinutes();
-      var sec = now.getSeconds();
-
-      var calendar = document.getElementById("date");
-      var time = document.getElementById("clock");
-
-      calendar.innerText = year + "년" + month + "월" + date + "일";
-      time.innerText = hour + "시" + min + "분" + sec + "초";
-
-    
-
-
-    }, 1000)
-
-
-  </script>
-</body>
+        calendar.innerText = `${year}년${month}월${date}일`;
+        //       year + "년" + month + "월" + date + "일";
+        time.innerText = hour + "시" + min + "분" + sec + "초";
+      }, 1000);
+    </script>
+  </body>
 </html>
