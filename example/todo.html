@@ -4,46 +4,147 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/f24559dc3c.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #1D322B;
+        width: 100%;
+        font-family: 'Times New Roman';
+      }
+      h1, p {
+        text-align: center;
+        color: #fff;
+      }
+      h1 {
+        font-size: 108px;
+        margin-top: 5%;
+        transition: all 0.2s;
+      }
+      h1 span:hover {
+        color: #C10000;
+        transition-duration: 0.15s;
+        transition-timing-function: ease-in-out;
+      }
+      p {
+        font-size: 24px;
+        letter-spacing: 18px;
+      }
+      /* 텍스트 출력 영역 */
+      #todo {
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 30px;
+        overflow: scroll;
+        height: 370px;
+        width: 760px;
+        border: 1.5px solid #4A6D62;
+        font-size: 22px;
+        font-family: sans-serif;
+        font-weight: 200;
+        color: #fff;
+      }
+      &#todo {
+        text-decoration: line-through;
+      }
+     
+      /* 텍스트 입력 영역 */
+      #text-box {
+        display: grid;
+        outline: none;
+        border: 0;
+        height: 60px;
+        font-size: 18px;
+        overflow: scroll;
+        transition: all 0.15s;
+        box-shadow: 1px 1px 5px #000;
+      }
+      #text-box:hover {
+        box-shadow: 1px 1px 5px #000, inset 2px 2px 3px #71817c;
+        transition-duration: 0.15s;
+        transition-timing-function: ease-in-out;
+      }
+      #input-wrapper {
+        margin: 0 auto;
+        margin-top: 44px;
+        width: 50%;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        grid-template-rows: 60px;
+        grid-column-gap: 10px;
+      }
+      #input-wrapper input {
+        border-radius: 3px;
+        padding: 20px;
+      }
+      #input-wrapper button {
+        background-color: #fff;
+        border: 0;
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px #000;
+        transition: all 0.15s;
+        outline: none;
+      }
+      #input-wrapper button:hover {
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #C10000;
+        transition-duration: 0.15s;
+        transition-timing-function: ease-in-out;
+      }
+    </style>
   </head>
   <body>
-    <div
-      id="todo"
-      style="
-        overflow: scroll;
-        height: 300px;
-        width: 200px;
-        background-color: yellowgreen;
-      "
-    ></div>
+    <h1>TO <span>DO</span> LIST</h1>
+    <p>Write text here</p>
 
-    <input type="text" id="text-box" placeholder="일정을 입력하세요." />
-    <button onclick="addEvent(document.getElementById('text-box'))">
-      일정등록
-    </button>
+    <!-- 텍스트 넣는 영역 -->
+    <div id="input-wrapper">
+      <input type="text" id="text-box" placeholder="일정을 입력하세요." />
+      <button onclick="addEvent(document.getElementById('text-box'))">
+        <i class="fas fa-search" style="font-size: 24px;"></i>
+      </button>
+    </div>
+    <!-- 텍스트 출력 영역 -->
+    <div id="todo">
+      <ul id="text"></ul>
+    </div>
+        
+
+    
 
     <script>
       var badword = ["시발", "씨발", "개새끼", "si발", "새77ㅣ"];
       var count = badword.length;
 
+      // 정규식 사용, 길이에 따라 말 거름
       function addEvent(event) {
         for (var i = 0; i < count; i++) {
           if (event.value.includes(badword[i])) {
             for (var j = 0; j < event.value.length; j++) {
-              event.value = event.value.replace(badword[i], "*");
+              event.value = event.value.replace(badword[i], "메롱");
             }
           }
         }
-
+        // 자기 자신 클릭 시 사라짐
         document.getElementById("todo").innerHTML +=
           "<div onclick='this.remove()'>" + event.value + "</div>";
         event.value = "";
       }
 
+
+      // Enter(13) 입력 시 텍스트 입력
       var text = document.getElementById("text-box");
       text.addEventListener("keyup", function (event) {
         if (event.keyCode == 13) {
           addEvent(document.getElementById("text-box"));
         }
+
       });
     </script>
   </body>
