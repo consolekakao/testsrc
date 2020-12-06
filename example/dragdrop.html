@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      body,
+      td,
+      img {
+        margin: 0;
+        padding: 0;
+      }
+      #sort {
+        width: 200px;
+        height: 153px;
+        background-color: aqua;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <div>
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+
+        <div
+          id="div1"
+          ondrop="drop(event)"
+          style="
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            width: 98px;
+            height: 455px;
+            background-color: rgb(230, 94, 196);
+            float: left;
+          "
+          ondragover="allowDrop(event)"
+        ></div>
+      </div>
+
+      <div style="width: 686px; height: 455px; margin-left: 500px">
+        <div
+          id="drag48"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-048.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag4"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-004.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag47"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-047.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag26"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-026.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag2"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-002.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag3"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-003.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag21"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-021.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag5"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-005.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag6"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-006.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag7"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-007.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag8"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-008.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag9"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-009.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag10"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-010.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag11"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-011.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag12"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-012.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag13"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-013.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag31"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-031.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag14"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-014.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag15"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-015.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag16"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-016.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag17"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-017.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag18"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-018.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag19"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-019.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag20"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-020.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag22"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-022.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag35"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-035.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag23"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-023.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag24"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-024.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag25"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-025.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag27"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-027.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag28"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-028.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag29"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-029.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag30"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-030.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag32"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-032.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag33"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-033.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag43"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-043.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag34"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-034.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag36"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-036.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag37"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-037.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag38"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-038.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag41"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-041.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag49"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-049.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag42"
+          style="
+            width: 92px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-042.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag44"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-044.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag45"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-045.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag46"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-046.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+
+        <div
+          id="drag40"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-040.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag39"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-039.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="drag1"
+          style="
+            width: 98px;
+            height: 65px;
+            float: left;
+            background-color: aqua;
+            background-image: url(./puzzleimg/kart-001.jpg);
+          "
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+      </div>
+    </center>
+    <br />
+    <div style="margin: 100px; margin-left: 700px; font-size: 50px">
+      진행시간
+      <div id="timer">180</div>
+    </div>
+    <script>
+      setInterval(function () {
+        var x = document.getElementById("timer");
+        x.innerText--;
+        if (x.innerText == 0) {
+          alert("GameOver");
+          window.close();
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

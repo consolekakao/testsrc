@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="./puzzleimg/kart.jpg" alt="" style="margin-left: 700px" /> <br />
+    <div style="margin: 100px; margin-left: 700px; font-size: 50px">
+      남은시간
+      <div id="timer">5</div>
+    </div>
+  </body>
+  <script>
+    setInterval(function () {
+      var x = document.getElementById("timer");
+      x.innerText--;
+      if (x.innerText == 0) {
+        window.open("dragdrop.html");
+      }
+    }, 1000);
+  </script>
+</html>
