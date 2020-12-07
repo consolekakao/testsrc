@@ -1,0 +1,38 @@
+#day {
+  width: 50px;
+  height: 50px;
+}
+
+#week {
+  width: 50px;
+  height: 20px;
+}
+
+#Calendar {
+  min-width: 854px;
+  padding: 50px;
+  width: 854px;
+  height: 600px;
+  border: 1px solid;
+}
+
+#dates {
+  margin-top: 100px;
+  width: 840px;
+  height: 707px;
+  float: left;
+}
+#ad {
+  text-align: right;
+  padding: 10px;
+  width: 100px;
+  height: 80px;
+  float: left;
+}
+#ad:nth-child(7n) {
+  color: blue;
+}
+
+#ad:nth-child(7n + 1) {
+  color: red;
+}
