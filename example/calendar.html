@@ -8,21 +8,30 @@
   </head>
   <body>
     <center>
-      <div id="TitleYear">0</div>
-      <div id="TitleMonth">0</div>
-      <div id="Calendar">
-        <td id="week">일</td>
-        <td id="week">월</td>
-        <td id="week">화</td>
-        <td id="week">수</td>
-        <td id="week">목</td>
-        <td id="week">금</td>
-        <td id="week">토</td>
+      <div hidden id="TitleYear">0</div>
 
-        <div id="dates"></div>
+      <div hidden id="TitleMonth">0</div>
+      <div id="x">1</div>
+      <div id="y">1</div>
+      <div>
+        <div id="Calendar">
+          <div id="button">
+            <button id="left" onclick="left()"><</button>
+            <div id="NowDate"></div>
+            <button id="right" onclick="right()">></button>
+          </div>
+          <div id="week">Sun</div>
+          <div id="week">Mon</div>
+          <div id="week">Tue</div>
+          <div id="week">Wed</div>
+          <div id="week">Thu</div>
+          <div id="week">Fri</div>
+          <div id="week">Sat</div>
+
+          <div style="margin-bottom: 400px" />
+          <div id="InCalendar" />
+        </div>
       </div>
-      <button id="left" onclick="left()"><<></button>
-      <button id="right" onclick="right()">>>></button>
     </center>
     <script src="./calendar.js"></script>
   </body>

@@ -1,18 +1,14 @@
-#day {
-  width: 50px;
-  height: 50px;
-}
-
 #week {
-  width: 50px;
+  width: 122px;
   height: 20px;
+  float: left;
 }
 
 #Calendar {
   min-width: 854px;
   padding: 50px;
   width: 854px;
-  height: 600px;
+  height: 650px;
   border: 1px solid;
 }
 
@@ -35,4 +31,22 @@
 
 #ad:nth-child(7n + 1) {
   color: red;
+}
+#button {
+  margin-left: 550px;
+  display: flex;
+  color: rgb(96, 61, 141);
+  font-size: x-large;
+  font-weight: 600;
+}
+#NowDate {
+  color: rgb(96, 61, 141);
+  font-size: x-large;
+  font-weight: 600;
+  padding: 10px;
+}
+#left,
+#right {
+  width: 50px;
+  height: 50px;
 }
