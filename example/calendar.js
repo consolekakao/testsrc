@@ -37,6 +37,11 @@ SetMonth = new Date().getMonth();
 console.log(SetYear, SetMonth + 1);
 setting(SetYear, SetMonth);
 
-function left() {}
+function left() {
+  --SetMonth;
+  setting(SetYear,SetMonth )
+  console.log("현재달 인덱스",SetMonth)
+
+}
 
 function right() {}
