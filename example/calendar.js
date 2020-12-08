@@ -22,7 +22,7 @@ const setting = (year, month) => {
   dates.forEach((date, i) => {
     dates[
       i
-    ] = `<span style="border: 1px solid; float : left;" id="ad" >${date}</span>`;
+    ] = `<span style="border: 0px solid; float : left;" id="ad" onClick="clickDay(${year},${month},${date})">${date}</span>`;
   });
   const Now = document.getElementById("NowDate");
   Now.innerHTML = `${year}년 ${month + 1}월`;
@@ -38,10 +38,21 @@ console.log(SetYear, SetMonth + 1);
 setting(SetYear, SetMonth);
 
 function left() {
-  --SetMonth;
+  SetMonth--;
+  SetMonth < 0 ?(SetMonth = 11,SetYear--): SetMonth = SetMonth
   setting(SetYear,SetMonth )
-  console.log("현재달 인덱스",SetMonth)
 
 }
 
-function right() {}
+function right() {
+  SetMonth++;
+  SetMonth>11?(SetMonth = 0,SetYear++) : SetMonth = SetMonth
+  setting(SetYear,SetMonth)
+}
+
+function clickDay(year,month,parm) {
+  console.log(year,month)
+  let day = document.getElementById("bigDay");
+  day.innerText = parm
+  console.log
+}

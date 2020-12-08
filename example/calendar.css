@@ -1,7 +1,7 @@
 #week {
-  width: 122px;
+  width: 60px;
   height: 20px;
-  float: left;
+  float: right;
 }
 
 #Calendar {
@@ -12,18 +12,46 @@
   border: 1px solid;
 }
 
+
+#InCalendar{
+  width: 450px;
+  height: 700px;
+  margin-left: 430px;
+}
+
+#today{
+  width: 400px;
+  height: 400px;
+  float: left;
+  background-color: rgb(126, 125, 126);
+  border:1px solid rgb(126, 125, 126);
+  border-radius: 30px;
+  
+}
+
+#bigDay{
+  margin-top: 10px;
+  color: #FFFFFF;
+  font-size: 140px;
+}
+
 #dates {
+  padding-top: 100px;
+  border: 1px solid purple;
   margin-top: 100px;
-  width: 840px;
+  width: 490px;
   height: 707px;
   float: left;
 }
 #ad {
-  text-align: right;
-  padding: 10px;
-  width: 100px;
-  height: 80px;
+  font-weight: 800;
+  text-align: center;
+  padding: 20px;
+  width: 20px;
+  height: 20px;
   float: left;
+  border-radius: 50%;
+  
 }
 #ad:nth-child(7n) {
   color: blue;
@@ -33,20 +61,22 @@
   color: red;
 }
 #button {
-  margin-left: 550px;
+  margin-left: 450px;
   display: flex;
-  color: rgb(96, 61, 141);
-  font-size: x-large;
-  font-weight: 600;
+  padding-bottom: 20px;
 }
 #NowDate {
   color: rgb(96, 61, 141);
   font-size: x-large;
+  padding-top: 30px;
   font-weight: 600;
-  padding: 10px;
 }
 #left,
 #right {
+  font-size: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: black;
   width: 50px;
   height: 50px;
 }
