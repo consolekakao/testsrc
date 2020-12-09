@@ -25,7 +25,7 @@ const setting = (year, month) => {
   }
   for (let i = 1; i < 7 - ThisDay; i++) NextDates.push(i);
 
-  const dates = LastDates.concat(ThisDates, NextDates);
+  const dates = ThisDates //LastDates.concat(ThisDates, NextDates);
 
 
 
@@ -44,16 +44,13 @@ const setting = (year, month) => {
  
 
 
-console.log(dates)
-
   let todoData = JSON.parse(x.responseText)
-  console.log(todoData[0])
-  console.log(todoData[0].date)
   for(let i = 0; i<todoData.length;i++){
     for(let j=0;j<dates.length;j++){
-        if(todoData[i].date && document.getElementsByClassName("ad[j]")){
-          document.querySelector("#InCalendar > span.ad21")
-        }break;
+        if(todoData[i].date ==j  && document.getElementsByClassName("ad[j]")){
+          document.querySelectorAll("#InCalendar > span.ad")[j]       
+          console.log(document.querySelectorAll("#InCalendar > span.ad")[j]);
+      }
     }
   }
 
