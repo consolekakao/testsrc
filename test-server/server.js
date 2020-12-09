@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/todo", todo);
 
-//app.use("/dump", dump);
 const port = 3003;
 
 http.listen(port, () => console.log(`Start Node ${port}`));

@@ -20,11 +20,11 @@ var connection = mysql.createConnection({
 let outdata = [];
 connection.connect();
 router.post("/", function (req, res) { 
-    const year = req.body;
+    const year = req.body.year;
     const month = req.body.month;
     
     console.log(year,month)
-    connection.query("SELECT * FROM calendar", function (
+    connection.query(`SELECT * FROM calendar `, function (
       err,
       rows
     ) {

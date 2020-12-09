@@ -3,7 +3,9 @@ const setting = (year, month) => {
   resetCss.forEach(ele =>{
     ele.style.backgroundColor="white"  
   })    // 월 바뀔때마다 배경 초기화
+  console.log(year)
  const requestData = {
+   
    year : year,
    month : month
  }
@@ -11,7 +13,6 @@ const setting = (year, month) => {
   x.open("POST","http://localhost:3003/todo",false)
   x.setRequestHeader('ContentType','text/xml')
   x.send(JSON.stringify(requestData))
-
 
   const LastMonth = new Date(year, month, 0);
   const ThisMonth = new Date(year, month + 1, 0);
@@ -29,11 +30,11 @@ const setting = (year, month) => {
 
   if (LastDay !== 6) {
     for (let i = 0; i < LastDay + 1; i++) {
-      LastDates.unshift(LastDate - i);   전 달 마지막 주가 7일이면 한줄 더 출력할 필요 없음
+      LastDates.unshift(LastDate - i); //  전 달 마지막 주가 7일이면 한줄 더 출력할 필요 없음
     }
   }
 
-  for (let i = 1; i < 7 - ThisDay; i++) NextDates.push(i);  다음달 첫 주 추가
+  for (let i = 1; i < 7 - ThisDay; i++) NextDates.push(i); // 다음달 첫 주 추가
 
 
 
