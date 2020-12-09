@@ -1,4 +1,9 @@
 const setting = (year, month) => {
+  var x = new XMLHttpRequest();
+  x.open("GET","http://localhost:3003/todo",false)
+  x.send()
+
+
   const LastMonth = new Date(year, month, 0);
   const ThisMonth = new Date(year, month + 1, 0);
   const LastDate = LastMonth.getDate();
@@ -10,6 +15,9 @@ const setting = (year, month) => {
   const ThisDates = [...Array(ThisDate + 1).keys()].slice(1);
   const NextDates = [];
 
+
+  
+
   if (LastDay !== 6) {
     for (let i = 0; i < LastDay + 1; i++) {
       LastDates.unshift(LastDate - i);
@@ -19,15 +27,43 @@ const setting = (year, month) => {
 
   const dates = LastDates.concat(ThisDates, NextDates);
 
+
+
+
+
+
+
   dates.forEach((date, i) => {
     dates[
       i
-    ] = `<span style="border: 0px solid; float : left;" id="ad" onClick="clickDay(${year},${month},${date})">${date}</span>`;
+    ] = `<span style="border: 0px solid; float : left;" class="ad ${i}" onClick="clickDay(${year},${month},${date})">${date}</span>`;
   });
   const Now = document.getElementById("NowDate");
   Now.innerHTML = `${year}년 ${month + 1}월`;
   document.querySelector("#InCalendar").innerHTML = dates.join(" ");
+ 
+
+
+console.log(dates)
+
+  let todoData = JSON.parse(x.responseText)
+  console.log(todoData[0])
+  console.log(todoData[0].date)
+  for(let i = 0; i<todoData.length;i++){
+    for(let j=0;j<dates.length;j++){
+        if(todoData[i].date && document.getElementsByClassName("ad[j]")){
+          document.querySelector("#InCalendar > span.ad21")
+        }break;
+    }
+  }
+
+
+
 };
+
+
+
+
 
 let SetYear, SetMonth;
 var testdate = new Date();
