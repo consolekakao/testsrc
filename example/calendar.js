@@ -10,8 +10,8 @@ const setting = (year, month) => {
   };
   var x = new XMLHttpRequest();
   x.open("POST", "http://127.0.0.1:3003/todo", false);
-  x.setRequestHeader("ContentType", "application/json");
-  x.send(requestData);
+  x.setRequestHeader("Content-Type", "application/json");
+  x.send(JSON.stringify(requestData));
 
   // fetch("http://localhost:3003/todo", {
   //   method: "POST",
@@ -47,7 +47,7 @@ const setting = (year, month) => {
   LastDates.forEach((date, i) => {
     LastDates[
       i
-    ] = `<span style="border: 0px solid; float : left;" class="thisMonthDay" onClick="clickDay(${year},${month},${date})">${date}</span>`;
+    ] = `<span style="border: 0px solid; float : left;" class="lastMonthDay" onClick="clickDay(${year},${month},${date})">${date}</span>`;
   });
   //   LastDates에 전 달 엘리먼트 입력.
   ThisDates.forEach((date, i) => {
