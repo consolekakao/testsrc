@@ -21,6 +21,7 @@ let outdata = [];
 connection.connect();
 router.post("/", function (req, res) {
   console.log(req.body);
+  console.log()
   connection.query(`SELECT * FROM calendar `, function (err, rows) {
     try {
       if (err) throw err;

@@ -5,13 +5,13 @@ const setting = (year, month) => {
   }); // 월 바뀔때마다 배경 초기화
   console.log(year);
   const requestData = {
-    year: year,
-    month: month,
+    'year': year,
+    'month': month,
   };
   var x = new XMLHttpRequest();
-  x.open("POST", "http://localhost:3003/todo", false);
-  x.setRequestHeader("ContentType", "text/xml");
-  x.send(JSON.stringify(requestData));
+  x.open("POST", "http://127.0.0.1:3003/todo", false);
+  x.setRequestHeader("ContentType", "application/json");
+  x.send(requestData);
 
   // fetch("http://localhost:3003/todo", {
   //   method: "POST",
