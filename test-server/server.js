@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-var http = require("http").createServer(app);
 
 const cors = require("cors");
 const todo = require("./routes/todo.js");
@@ -13,5 +12,4 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/todo", todo);
 
 const port = 3003;
-
-http.listen(port, () => console.log(`Start Node ${port}`));
+app.listen(port, () => console.log(`Start Node ${port}`));
