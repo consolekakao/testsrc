@@ -5,22 +5,13 @@ const setting = (year, month) => {
   }); // 월 바뀔때마다 배경 초기화
   console.log(year);
   const requestData = {
-    'year': year,
-    'month': month,
+    year: year,
+    month: month,
   };
-  var x = new XMLHttpRequest();
-  x.open("POST", "http://127.0.0.1:3003/todo", false);
-  x.setRequestHeader("Content-Type", "application/json");
-  x.send(JSON.stringify(requestData));
-
-  // fetch("http://localhost:3003/todo", {
-  //   method: "POST",
-  //   body: JSON.stringify(requestData),
-  // })
-  //   .then(console.log("2314123434"))
-  //   .then(console.log(requestData))
-  //   .then((response) => response.json())
-  //   .then((html) => console.log(html));
+  let requstApi = new XMLHttpRequest();
+  requstApi.open("POST", "http://localhost:3003/todo", false);
+  requstApi.setRequestHeader("Content-Type", "application/json");
+  requstApi.send(JSON.stringify(requestData));
 
   const LastMonth = new Date(year, month, 0);
   const ThisMonth = new Date(year, month + 1, 0);
@@ -67,7 +58,7 @@ const setting = (year, month) => {
   document.querySelector("#InCalendar").innerHTML =
     LastDates.join(" ") + ThisDates.join(" ") + NextDates.join(" ");
   //모든 엘리먼트 삽입
-  let todoData = JSON.parse(x.responseText);
+  let todoData = JSON.parse(requstApi.responseText);
   for (let i = 0; i < todoData.length; i++) {
     for (let j = 0; j < ThisDates.length; j++) {
       if (
@@ -107,5 +98,17 @@ function clickDay(year, month, parm) {
   console.log(year, month);
   let day = document.getElementById("bigDay");
   day.innerText = parm;
-  console.log;
+  const data = {
+    year: year,
+    month: month,
+    day: parm,
+  };
+  let callData = new XMLHttpRequest();
+  callData.open("POST", "http://localhost:3003/clickday", false);
+  callData.setRequestHeader("Content-Type", "application/json");
+  callData.send(JSON.stringify(data));
+  console.log(callData);
+  console.log(callData.responseText);
+  console.log(callData.response.length);
+  // response 배열 길이 구해야함.
 }
