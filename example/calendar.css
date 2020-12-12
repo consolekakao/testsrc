@@ -62,6 +62,9 @@
 .thisMonthDay:nth-child(7n + 1) {
   color: red;
 }
+.lastMonthDay:nth-child(1){
+  color: red;
+}
 #button {
   margin-left: 450px;
   display: flex;

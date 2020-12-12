@@ -1,15 +1,17 @@
+
+
 const setting = (year, month) => {
-  console.log("asfdlksadjflasjgfe", year, month);
   let resetCss = document.querySelectorAll("#InCalendar > span");
   resetCss.forEach((ele) => {
     ele.style.backgroundColor = "white";
   }); // 월 바뀔때마다 배경 초기화
-  console.log(year);
   const requestData = {
     year: year,
     month: month,
   };
   let requstApi = new XMLHttpRequest();
+  //requstApi.open("POST", "http://consolekakaoapi.duckdns.org", false);
+    //배포용 주소
   requstApi.open("POST", "http://localhost:3003/todo", false);
   requstApi.setRequestHeader("Content-Type", "application/json");
   requstApi.send(JSON.stringify(requestData));
@@ -75,27 +77,29 @@ const setting = (year, month) => {
   }
 };
 
+
 let SetYear, SetMonth;
-var testdate = new Date();
 SetYear = new Date().getFullYear();
 SetMonth = new Date().getMonth();
-
 setting(SetYear, SetMonth);
 
-function left() {
+
+
+
+
+function left() {  //이전달로 이동
   SetMonth--;
   SetMonth < 0 ? ((SetMonth = 11), SetYear--) : (SetMonth = SetMonth);
   setting(SetYear, SetMonth);
 }
 
-function right() {
+function right() {  //다음달로 이동
   SetMonth++;
   SetMonth > 11 ? ((SetMonth = 0), SetYear++) : (SetMonth = SetMonth);
   setting(SetYear, SetMonth);
 }
 
-function clickDay(year, month, parm) {
-  console.log(year, month);
+function clickDay(year, month, parm) {  //일자 클릭시
   let day = document.getElementById("bigDay");
   day.innerText = parm;
   const data = {
@@ -105,6 +109,8 @@ function clickDay(year, month, parm) {
   };
   let callData = new XMLHttpRequest();
   callData.open("POST", "http://localhost:3003/clickday", false);
+  //callData.open("POST", "http://consolekakaoclickday.duckdns.org", false);
+  //배포용 주소
   callData.setRequestHeader("Content-Type", "application/json");
   callData.send(JSON.stringify(data));
   document.getElementById("dayContents").innerHTML = "";
@@ -123,21 +129,22 @@ function clickDay(year, month, parm) {
     ,${JSON.parse(callData.responseText)[i].date})">x</span>
     </div>`;
   }
+  if(JSON.parse(callData.responseText).length == 0) document.getElementById("dayContents").innerHTML = "오늘은 일정이 없네요."
 }
 
 const deleteContents = async (idx, year, month, date) => {
   let data = {
     idx: idx,
   };
-  console.log("클릭날자  ", date);
   let deleteRequest = new XMLHttpRequest();
   deleteRequest.open("POST", "http://localhost:3003/delete");
+  //deleteRequest.open("POST", "http://consolecalendardelete.duckdns.org");
+    //배포용 주소
   deleteRequest.setRequestHeader("Content-Type", "application/json");
   deleteRequest.send(JSON.stringify(data));
   await sleep(100);
   setting(SetYear, SetMonth);
   await sleep(100);
-  console.log(year, month, date);
   clickDay(year, month, date);
 };
 
