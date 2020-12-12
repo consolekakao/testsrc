@@ -1,4 +1,5 @@
 const setting = (year, month) => {
+  console.log("asfdlksadjflasjgfe", year, month);
   let resetCss = document.querySelectorAll("#InCalendar > span");
   resetCss.forEach((ele) => {
     ele.style.backgroundColor = "white";
@@ -79,7 +80,6 @@ var testdate = new Date();
 SetYear = new Date().getFullYear();
 SetMonth = new Date().getMonth();
 
-console.log(SetYear, SetMonth + 1);
 setting(SetYear, SetMonth);
 
 function left() {
@@ -116,9 +116,32 @@ function clickDay(year, month, parm) {
     }
     <span id="dayContents[${
       JSON.parse(callData.responseText)[i].idx
-    }]" onclick="deleteContents()">x</span>
+    }]" onclick="deleteContents(${
+      JSON.parse(callData.responseText)[i].idx
+    },${SetYear}
+    ,${SetMonth}
+    ,${JSON.parse(callData.responseText)[i].date})">x</span>
     </div>`;
   }
 }
 
-//const deleteContents = ()
+const deleteContents = async (idx, year, month, date) => {
+  let data = {
+    idx: idx,
+  };
+  console.log("클릭날자  ", date);
+  let deleteRequest = new XMLHttpRequest();
+  deleteRequest.open("POST", "http://localhost:3003/delete");
+  deleteRequest.setRequestHeader("Content-Type", "application/json");
+  deleteRequest.send(JSON.stringify(data));
+  await sleep(100);
+  setting(SetYear, SetMonth);
+  await sleep(100);
+  console.log(year, month, date);
+  clickDay(year, month, date);
+};
+
+function sleep(ms) {
+  //딜레이함수
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
