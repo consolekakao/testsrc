@@ -12,27 +12,29 @@
   border: 1px solid;
 }
 
-
-#InCalendar{
+#InCalendar {
   width: 450px;
   height: 700px;
   margin-left: 430px;
 }
 
-#today{
+#today {
   width: 400px;
   height: 400px;
   float: left;
   background-color: rgb(126, 125, 126);
-  border:1px solid rgb(126, 125, 126);
+  border: 1px solid rgb(126, 125, 126);
   border-radius: 30px;
-  
 }
 
-#bigDay{
+#bigDay {
   margin-top: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 140px;
+}
+
+#dayContents {
+  color: #ffffff;
 }
 
 #dates {
@@ -43,7 +45,8 @@
   height: 707px;
   float: left;
 }
-.thisMonthDay,.lastMonthDay {
+.thisMonthDay,
+.lastMonthDay {
   font-weight: 800;
   text-align: center;
   padding: 20px;
@@ -51,7 +54,6 @@
   height: 20px;
   float: left;
   border-radius: 50%;
-  
 }
 .thisMonthDay:nth-child(7n) {
   color: blue;

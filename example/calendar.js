@@ -107,8 +107,18 @@ function clickDay(year, month, parm) {
   callData.open("POST", "http://localhost:3003/clickday", false);
   callData.setRequestHeader("Content-Type", "application/json");
   callData.send(JSON.stringify(data));
-  console.log(callData);
-  console.log(callData.responseText);
-  console.log(callData.response.length);
-  // response 배열 길이 구해야함.
+  document.getElementById("dayContents").innerHTML = "";
+  for (let i = 0; i < JSON.parse(callData.responseText).length; i++) {
+    document.getElementById(
+      "dayContents"
+    ).innerHTML += `<div id="dayContents[${i}]">${
+      JSON.parse(callData.responseText)[i].contents
+    }
+    <span id="dayContents[${
+      JSON.parse(callData.responseText)[i].idx
+    }]" onclick="deleteContents()">x</span>
+    </div>`;
+  }
 }
+
+//const deleteContents = ()
