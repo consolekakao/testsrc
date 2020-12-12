@@ -20,7 +20,7 @@ connection.connect();
 router.post("/", function (req, res) {
   let lastday = new Date(req.body.year,req.body.month+1,0).getDate();
   let q = req.body.month++;
-  if(req.body.month.toString().length==1) {req.body.month = '0'+req.body.month;}console.log(`SELECT * FROM calendar where sindex > "${req.body.year}-${ req.body.month}-01" and sindex < "${req.body.year}-${req.body.month}-${lastday}"`)
+  if(req.body.month.toString().length==1) req.body.month = '0'+req.body.month;
   connection.query(`SELECT * FROM calendar where sindex > "${req.body.year}-${req.body.month}-01" and sindex < "${req.body.year}-${req.body.month}-${lastday}"`, function (err, rows) {
     try {
       if (err) throw err;
