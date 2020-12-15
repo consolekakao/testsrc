@@ -52,7 +52,7 @@ const setting = (year, month) => {
   NextDates.forEach((date, i) => {
     NextDates[
       i
-    ] = `<span style="border: 0px solid; float : left;" class="thisMonthDay" onClick="clickDay(${year},${month},${date})">${date}</span>`;
+    ] = `<span style="border: 0px solid; float : left;" class="nextMonthDay" onClick="clickDay(${year},${month},${date})">${date}</span>`;
   });
 
   //  NextDates에 다음 달 엘리먼트 입력
@@ -111,25 +111,28 @@ function clickDay(year, month, parm) {
   callData.send(JSON.stringify(data));
   document.getElementById("dayContents").innerHTML = "";
   for (let i = 0; i < JSON.parse(callData.responseText).length; i++) {
-    document.getElementById("dayContents").innerHTML +=
-      `<div id="dayContents[${i}]">${
-        JSON.parse(callData.responseText)[i].contents
-      }
+    document.getElementById(
+      "dayContents"
+    ).innerHTML += `<div id="dayContents[${i}]">${decodeURI(
+      JSON.parse(callData.responseText)[i].contents
+    )}
     <span id="dayContents[${
       JSON.parse(callData.responseText)[i].idx
     }]" onclick="deleteContents(${
-        JSON.parse(callData.responseText)[i].idx
-      },${SetYear}
+      JSON.parse(callData.responseText)[i].idx
+    },${SetYear}
     ,${SetMonth}
-    ,${JSON.parse(callData.responseText)[i].date})">x</span>
-    </div>` +
-      `<div id="addContents" onclick="addContents(${year},${month},${parm})">일정 등록하기</div>`;
+    ,${decodeURI(JSON.parse(callData.responseText)[i].date)})">x</span>
+    </div>`;
+    //`<div id="addContents" onclick="addContents(${year},${month},${parm})">일정 등록하기</div>`;
   }
-  console.log(`${year},${month},${parm}`);
   if (JSON.parse(callData.responseText).length == 0)
-    document.getElementById("dayContents").innerHTML =
-      `오늘은 일정이 없네요. ` +
-      `<div id="addContents" onclick="addContents(${year},${month},${parm})">일정 등록하기</div>`;
+    document.getElementById("dayContents").innerHTML = `오늘은 일정이 없네요. `;
+  //  `<div id="addContents" onclick="addContents(${year},${month},${parm})">일정 등록하기</div>`;
+
+  document.getElementById(
+    "dayContents"
+  ).innerHTML += `<div onclick="addContents(${year},${month},${parm})">일정추가하기</div>`;
 }
 
 const deleteContents = async (idx, year, month, date) => {
@@ -150,22 +153,24 @@ const deleteContents = async (idx, year, month, date) => {
 
 const addContents = async (year, month, day) => {
   let contents = prompt("일정입력:");
-  let data = {
-    year: year,
-    month: month + 1,
-    date: day,
-    contents: contents,
-  };
-  if (String(data.date).length == 1) data.date = "0" + data.date;
-  if (String(data.month).length == 1) data.month = "0" + data.month;
-  let addtodo = new XMLHttpRequest();
-  addtodo.open("POST", "http://consoleaddtodo.duckdns.org");
-  addtodo.setRequestHeader("Content-Type", "application/json");
-  addtodo.send(JSON.stringify(data));
-  await sleep(100);
-  setting(SetYear, SetMonth);
-  await sleep(100);
-  clickDay(year, month, day);
+  if (contents) {
+    let data = {
+      year: year,
+      month: month + 1,
+      date: day,
+      contents: contents,
+    };
+    if (String(data.date).length == 1) data.date = "0" + data.date;
+    if (String(data.month).length == 1) data.month = "0" + data.month;
+    let addtodo = new XMLHttpRequest();
+    addtodo.open("POST", "http://consoleaddtodo.duckdns.org");
+    addtodo.setRequestHeader("Content-Type", "application/json");
+    addtodo.send(JSON.stringify(data));
+    await sleep(200);
+    setting(SetYear, SetMonth);
+    await sleep(200);
+    clickDay(year, month, day);
+  }
 };
 
 function sleep(ms) {

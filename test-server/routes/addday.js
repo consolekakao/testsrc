@@ -18,17 +18,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 router.post("/", function (req, res) {
-  console.log(
-    `insert into calendar (sindex,contents,date) values ('${req.body.year}-${req.body.month}-${req.body.date}','${req.body.contents}','${req.body.date}')`
-  );
-
-  console.log(req.body.month);
-  console.log(req.body.month.length);
-
-  console.log(
-    `insert into calendar (sindex,contents,date) values ('${req.body.year}-${req.body.month}-${req.body.date}','${req.body.contents}','${req.body.date}')`
-  );
-
   connection.query(
     `insert into calendar (sindex,contents,date) values ('${req.body.year}-${req.body.month}-${req.body.date}','${req.body.contents}','${req.body.date}')`
   );

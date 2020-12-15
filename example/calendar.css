@@ -30,7 +30,7 @@
 #bigDay {
   margin-top: 10px;
   color: #ffffff;
-  font-size: 140px;
+  font-size: 100px;
 }
 
 #dayContents {
@@ -46,7 +46,8 @@
   float: left;
 }
 .thisMonthDay,
-.lastMonthDay {
+.lastMonthDay,
+.nextMonthDay {
   font-weight: 800;
   text-align: center;
   padding: 20px;
@@ -62,8 +63,17 @@
 .thisMonthDay:nth-child(7n + 1) {
   color: red;
 }
-.lastMonthDay:nth-child(1){
-  color: red;
+.lastMonthDay {
+  color: rgb(150, 150, 150);
+}
+.lastMonthDay:nth-child(1) {
+  color: rgb(255, 187, 187);
+}
+.nextMonthDay {
+  color: rgb(150, 150, 150);
+}
+.nextMonthDay:last-child {
+  color: rgb(133, 133, 255);
 }
 #button {
   margin-left: 450px;
@@ -84,4 +94,12 @@
   color: black;
   width: 50px;
   height: 50px;
+}
+
+#addContents {
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 70px;
 }
