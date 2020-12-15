@@ -132,7 +132,7 @@ function clickDay(year, month, parm) {
 
   document.getElementById(
     "dayContents"
-  ).innerHTML += `<div onclick="addContents(${year},${month},${parm})">일정추가하기</div>`;
+  ).innerHTML += `<br/><br/><div onclick="addContents(${year},${month},${parm})">일정추가하기</div>`;
 }
 
 const deleteContents = async (idx, year, month, date) => {
