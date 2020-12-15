@@ -159,7 +159,7 @@ const addContents = async (year, month, day) => {
   if (String(data.date).length == 1) data.date = "0" + data.date;
   if (String(data.month).length == 1) data.month = "0" + data.month;
   let addtodo = new XMLHttpRequest();
-  addtodo.open("POST", "http://consoleaddtodo:3003/add");
+  addtodo.open("POST", "http://consoleaddtodo.duckdns.org");
   addtodo.setRequestHeader("Content-Type", "application/json");
   addtodo.send(JSON.stringify(data));
   await sleep(100);
