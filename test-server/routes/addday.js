@@ -6,6 +6,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 var mysql = require("mysql");
 const cors = require("cors");
 const dbconnect = require("./dbconnect.json");
+const { json } = require("express");
 router.use(cors());
 var connection = mysql.createConnection({
   host: dbconnect.host,
@@ -20,25 +21,17 @@ router.post("/", function (req, res) {
   console.log(
     `insert into calendar (sindex,contents,date) values ('${req.body.year}-${req.body.month}-${req.body.date}','${req.body.contents}','${req.body.date}')`
   );
-  connection.query(
+
+  console.log(req.body.month);
+  console.log(req.body.month.length);
+
+  console.log(
     `insert into calendar (sindex,contents,date) values ('${req.body.year}-${req.body.month}-${req.body.date}','${req.body.contents}','${req.body.date}')`
   );
 
-  //   connection.query(
-  //     `select count(*) as cnt from calendar where num = ${req.body.idx}`,
-  //     function (err, rows) {
-  //       try {
-  //         if (err) throw err;
-  //         if (rows) {
-  //           rows[0].cnt == 0
-  //             ? console.log(`${req.body.idx}번 일정 삭제 성공`)
-  //             : console.log(`${req.body.idx}번 일정 삭제 실패`);
-  //         }
-  //       } catch {
-  //         console.log("실패");
-  //       }
-  //     }
-  //   );
+  connection.query(
+    `insert into calendar (sindex,contents,date) values ('${req.body.year}-${req.body.month}-${req.body.date}','${req.body.contents}','${req.body.date}')`
+  );
 });
 
 module.exports = router;

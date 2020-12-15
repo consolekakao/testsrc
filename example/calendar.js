@@ -8,9 +8,9 @@ const setting = (year, month) => {
     month: month,
   };
   let requstApi = new XMLHttpRequest();
-  //requstApi.open("POST", "http://consolekakaoapi.duckdns.org", false);
+  requstApi.open("POST", "http://consolekakaoapi.duckdns.org", false);
   //배포용 주소
-  requstApi.open("POST", "http://localhost:3003/todo", false);
+  //requstApi.open("POST", "http://localhost:3003/todo", false);
   requstApi.setRequestHeader("Content-Type", "application/json");
   requstApi.send(JSON.stringify(requestData));
 
@@ -104,8 +104,8 @@ function clickDay(year, month, parm) {
     day: parm,
   };
   let callData = new XMLHttpRequest();
-  callData.open("POST", "http://localhost:3003/clickday", false);
-  //callData.open("POST", "http://consolekakaoclickday.duckdns.org", false);
+  //callData.open("POST", "http://localhost:3003/clickday", false);
+  callData.open("POST", "http://consolekakaoclickday.duckdns.org", false);
   //배포용 주소
   callData.setRequestHeader("Content-Type", "application/json");
   callData.send(JSON.stringify(data));
@@ -123,12 +123,13 @@ function clickDay(year, month, parm) {
     ,${SetMonth}
     ,${JSON.parse(callData.responseText)[i].date})">x</span>
     </div>` +
-      `<div id="addContents" onclick="addContents(${year},${month},${date})">일정 등록하기</div>`;
+      `<div id="addContents" onclick="addContents(${year},${month},${parm})">일정 등록하기</div>`;
   }
+  console.log(`${year},${month},${parm}`);
   if (JSON.parse(callData.responseText).length == 0)
     document.getElementById("dayContents").innerHTML =
       `오늘은 일정이 없네요. ` +
-      `<div id="addContents" onclick="addContents(${year},${month},${date})>일정 등록하기</div>`;
+      `<div id="addContents" onclick="addContents(${year},${month},${parm})">일정 등록하기</div>`;
 }
 
 const deleteContents = async (idx, year, month, date) => {
@@ -136,8 +137,8 @@ const deleteContents = async (idx, year, month, date) => {
     idx: idx,
   };
   let deleteRequest = new XMLHttpRequest();
-  deleteRequest.open("POST", "http://localhost:3003/delete");
-  //deleteRequest.open("POST", "http://consolecalendardelete.duckdns.org");
+  //deleteRequest.open("POST", "http://localhost:3003/delete");
+  deleteRequest.open("POST", "http://consolecalendardelete.duckdns.org");
   //배포용 주소
   deleteRequest.setRequestHeader("Content-Type", "application/json");
   deleteRequest.send(JSON.stringify(data));
@@ -147,23 +148,24 @@ const deleteContents = async (idx, year, month, date) => {
   clickDay(year, month, date);
 };
 
-const addContents = async (year, month, date) => {
+const addContents = async (year, month, day) => {
   let contents = prompt("일정입력:");
   let data = {
     year: year,
-    month: month,
-    date: date,
+    month: month + 1,
+    date: day,
     contents: contents,
   };
-  console.log(`23413431242134231` + year, month, date, contents);
-  let addContents = new XMLHttpRequest();
-  addContents.open("POST", "http://localhost:3003/add");
-  addContents.setRequestHeader("Content-Type", "application/json");
-  addContents.send(JSON.stringify(data));
+  if (String(data.date).length == 1) data.date = "0" + data.date;
+  if (String(data.month).length == 1) data.month = "0" + data.month;
+  let addtodo = new XMLHttpRequest();
+  addtodo.open("POST", "http://consoleaddtodo:3003/add");
+  addtodo.setRequestHeader("Content-Type", "application/json");
+  addtodo.send(JSON.stringify(data));
   await sleep(100);
   setting(SetYear, SetMonth);
   await sleep(100);
-  clickDay(year, month, date);
+  clickDay(year, month, day);
 };
 
 function sleep(ms) {
