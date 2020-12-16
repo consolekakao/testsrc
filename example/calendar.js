@@ -31,11 +31,15 @@ const setting = (year, month) => {
     }
   }
 
-  for (let i = 1; i < 7 - ThisDay; i++) NextDates.push(i); // 다음달 첫 주 추가
-
+  for (let i = -7; i < 7 - ThisDay; i++) NextDates.push(i); // 다음달 첫 주 추가
+  let html;
+  for (let i = -7; i < 7; i++) {
+    html += `<option value="${year + i}">${year - i}</option>`;
+  }
   const Now = document.getElementById("NowDate");
-  Now.innerHTML = `${year}년 ${month + 1}월`;
-
+  Now.innerHTML = `${year}년 ${
+    month + 1
+  }월  <select onchange="alert('gg')>${html}</select>`;
   LastDates.forEach((date, i) => {
     LastDates[
       i
@@ -72,6 +76,17 @@ const setting = (year, month) => {
         ].style.backgroundColor = "pink";
       }
     }
+  }
+  console.log(year, month);
+  let today = new Date();
+  if (year == today.getFullYear() && month == today.getMonth()) {
+    document.getElementsByClassName(
+      `thisMonthDay ${today.getDate() - 1}`
+    )[0].style.color = "Green";
+
+    document.getElementsByClassName(
+      `thisMonthDay ${today.getDate() - 1}`
+    )[0].innerHTML += `<br/><span style="margin-left : -10px;">Today</span>`;
   }
 };
 
