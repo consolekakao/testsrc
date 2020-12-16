@@ -1,40 +1,69 @@
-#week {
-  width: 60px;
-  height: 20px;
-  float: right;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'NanumSquare', sans-serif;
 }
 
 #Calendar {
-  min-width: 854px;
-  padding: 50px;
-  width: 854px;
-  height: 650px;
-  border: 1px solid;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 1200px;
+  height: 720px;
+}
+
+#yearLeft, #Left, #NowDate, #right{
+  margin-top: 20px;
+}
+
+#button {
+  text-align: center;
+}
+
+#week-container {
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 80px;
+  display: grid;
+  grid-template-columns: 70px  70px  70px  70px  70px  70px 70px;
+  grid-template-rows: 40px;
+  color: rgb(117, 117, 117);
+}
+
+hr {
+  width: 450px;
+  margin-right: 680px;
+  border: 1px solid rgb(244, 233, 248);
 }
 
 #InCalendar {
-  width: 450px;
-  height: 700px;
-  margin-left: 430px;
+  margin-left: 50px;
+  width: 500px;
+  float: left;
 }
 
 #today {
-  width: 400px;
-  height: 400px;
-  float: left;
-  background-color: rgb(126, 125, 126);
-  border: 1px solid rgb(126, 125, 126);
-  border-radius: 30px;
+  width: 500px;
+  height: 500px;
+  float: right;
+  background: rgb(228, 228, 228);
+  border-radius: 5px;
+  margin-top: -75px;
+  margin-right: 60px;
+  text-align: center;
 }
 
 #bigDay {
-  margin-top: 10px;
-  color: #ffffff;
+  margin-top: 40px;
+  color: #111;
   font-size: 100px;
 }
 
 #dayContents {
-  color: #ffffff;
+  color: #222;
 }
 
 #dates {
@@ -48,32 +77,33 @@
 .thisMonthDay,
 .lastMonthDay,
 .nextMonthDay {
-  font-weight: 800;
+  font-weight: 500;
   text-align: center;
-  padding: 20px;
-  width: 20px;
-  height: 20px;
+  margin: 20px;
+  width: 30px;
+  height: 30px;
   float: left;
-  border-radius: 50%;
+  color: #3f3f3f;
 }
+
 .thisMonthDay:nth-child(7n) {
-  color: blue;
+  color: rgb(0, 0, 218);
 }
 
 .thisMonthDay:nth-child(7n + 1) {
-  color: red;
+  color: rgb(218, 0, 0);
 }
 .lastMonthDay {
   color: rgb(150, 150, 150);
 }
 .lastMonthDay:nth-child(1) {
-  color: rgb(255, 187, 187);
+  color: rgb(240, 174, 174);
 }
 .nextMonthDay {
   color: rgb(150, 150, 150);
 }
 .nextMonthDay:last-child {
-  color: rgb(133, 133, 255);
+  color: rgb(157, 157, 231);
 }
 #button {
   margin-left: 450px;
@@ -81,19 +111,19 @@
   padding-bottom: 20px;
 }
 #NowDate {
-  color: rgb(96, 61, 141);
-  font-size: x-large;
-  padding-top: 30px;
-  font-weight: 600;
+  color: rgb(136, 79, 211);
+  font-size: 2em;
+  margin-top: 50px;
+  font-weight: 500;
 }
 #left,
 #right {
-  font-size: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
-  color: black;
-  width: 50px;
-  height: 50px;
+  margin: 50px 10px;
+  font-size: 2em;
+  color: rgb(88, 37, 155);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 #addContents {
