@@ -30,16 +30,15 @@ const setting = (year, month) => {
       LastDates.unshift(LastDate - i); //  전 달 마지막 주가 7일이면 한줄 더 출력할 필요 없음
     }
   }
+  for (let i = 1; i < 7 - ThisDay; i++) NextDates.push(i); // 다음달 첫 주 추가
 
-  for (let i = -7; i < 7 - ThisDay; i++) NextDates.push(i); // 다음달 첫 주 추가
   let html;
   for (let i = -7; i < 7; i++) {
     html += `<option value="${year + i}">${year - i}</option>`;
   }
   const Now = document.getElementById("NowDate");
-  Now.innerHTML = `${year}년 ${
-    month + 1
-  }월  <select onchange="alert('gg')>${html}</select>`;
+  Now.innerHTML = `${year}년 ${month + 1}월 `;
+  // <select onchange="alert('gg')>${html}</select>
   LastDates.forEach((date, i) => {
     LastDates[
       i
