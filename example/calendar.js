@@ -73,7 +73,7 @@ const setting = (year, month) => {
         // 일정의 date와 index가 겹치는 day가 있으면 배경 색 변경
         document.querySelectorAll("#InCalendar > span.thisMonthDay")[
           j - 1
-        ].style.backgroundColor = "pink";
+        ].style.borderBottom = "4px solid pink";
       }
     }
   }
@@ -86,7 +86,7 @@ const setting = (year, month) => {
 
     document.getElementsByClassName(
       `thisMonthDay ${today.getDate() - 1}`
-    )[0].innerHTML += `<br/><span style="margin-left : -10px;">Today</span>`;
+    )[0].innerHTML += `<br/><span style="margin-left: -5px;">Today</span>`;
   }
 };
 
