@@ -8,7 +8,7 @@ const setting = (year, month) => {
     month: month,
   };
   let requstApi = new XMLHttpRequest();
-  requstApi.open("POST", "http://consolekakaoapi.duckdns.org", false);
+  requstApi.open("POST", "http://consolecalendar.duckdns.org/todo", false);
   //배포용 주소
   //requstApi.open("POST", "http://localhost:3003/todo", false);
   requstApi.setRequestHeader("Content-Type", "application/json");
@@ -119,7 +119,11 @@ function clickDay(year, month, parm) {
   };
   let callData = new XMLHttpRequest();
   //callData.open("POST", "http://localhost:3003/clickday", false);
-  callData.open("POST", "http://consolekakaoclickday.duckdns.org", false);
+  callData.open(
+    "POST",
+    "http://consolecalendar.duckdns.org/main/clickday",
+    false
+  );
   //배포용 주소
   callData.setRequestHeader("Content-Type", "application/json");
   callData.send(JSON.stringify(data));
@@ -155,7 +159,7 @@ const deleteContents = async (idx, year, month, date) => {
   };
   let deleteRequest = new XMLHttpRequest();
   //deleteRequest.open("POST", "http://localhost:3003/delete");
-  deleteRequest.open("POST", "http://consolecalendardelete.duckdns.org");
+  deleteRequest.open("POST", "http://consolecalendar.duckdns.org/main/delete");
   //배포용 주소
   deleteRequest.setRequestHeader("Content-Type", "application/json");
   deleteRequest.send(JSON.stringify(data));
@@ -177,7 +181,7 @@ const addContents = async (year, month, day) => {
     if (String(data.date).length == 1) data.date = "0" + data.date;
     if (String(data.month).length == 1) data.month = "0" + data.month;
     let addtodo = new XMLHttpRequest();
-    addtodo.open("POST", "http://consoleaddtodo.duckdns.org");
+    addtodo.open("POST", "http://consolecalendar.duckdns.org/add");
     addtodo.setRequestHeader("Content-Type", "application/json");
     addtodo.send(JSON.stringify(data));
     await sleep(200);
