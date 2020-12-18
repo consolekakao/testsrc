@@ -119,11 +119,7 @@ function clickDay(year, month, parm) {
   };
   let callData = new XMLHttpRequest();
   //callData.open("POST", "http://localhost:3003/clickday", false);
-  callData.open(
-    "POST",
-    "http://consolecalendar.duckdns.org/main/clickday",
-    false
-  );
+  callData.open("POST", "http://consolecalendar.duckdns.org/clickday", false);
   //배포용 주소
   callData.setRequestHeader("Content-Type", "application/json");
   callData.send(JSON.stringify(data));
@@ -159,7 +155,7 @@ const deleteContents = async (idx, year, month, date) => {
   };
   let deleteRequest = new XMLHttpRequest();
   //deleteRequest.open("POST", "http://localhost:3003/delete");
-  deleteRequest.open("POST", "http://consolecalendar.duckdns.org/main/delete");
+  deleteRequest.open("POST", "http://consolecalendar.duckdns.org/api/delete");
   //배포용 주소
   deleteRequest.setRequestHeader("Content-Type", "application/json");
   deleteRequest.send(JSON.stringify(data));
@@ -181,7 +177,7 @@ const addContents = async (year, month, day) => {
     if (String(data.date).length == 1) data.date = "0" + data.date;
     if (String(data.month).length == 1) data.month = "0" + data.month;
     let addtodo = new XMLHttpRequest();
-    addtodo.open("POST", "http://consolecalendar.duckdns.org/add");
+    addtodo.open("POST", "http://consolecalendar.duckdns.org/api/add");
     addtodo.setRequestHeader("Content-Type", "application/json");
     addtodo.send(JSON.stringify(data));
     await sleep(200);
