@@ -8,9 +8,9 @@ const setting = (year, month) => {
     month: month,
   };
   let requstApi = new XMLHttpRequest();
-  requstApi.open("GET", "http://consolecalendar.duckdns.org/api/todo", false);
+ // requstApi.open("GET", "http://consolecalendar.duckdns.org/api/todo", false);
   //배포용 주소
-  //requstApi.open("POST", "http://localhost:3003/todo", false);
+  requstApi.open("post", "http://localhost:3003/todo", false);
   requstApi.setRequestHeader("Content-Type", "application/json");
   requstApi.send(JSON.stringify(requestData));
 
@@ -76,7 +76,6 @@ const setting = (year, month) => {
       }
     }
   }
-  console.log(year, month);
   let today = new Date();
   if (year == today.getFullYear() && month == today.getMonth()) {
     document.getElementsByClassName(
@@ -118,8 +117,8 @@ function clickDay(year, month, parm) {
     day: parm,
   };
   let callData = new XMLHttpRequest();
-  //callData.open("POST", "http://localhost:3003/clickday", false);
-  callData.open("GET", "http://consolecalendar.duckdns.org/api/clickday", false);
+  callData.open("post", "http://localhost:3003/clickday", false);
+  //callData.open("GET", "http://consolecalendar.duckdns.org/api/clickday", false);
   //배포용 주소
   callData.setRequestHeader("Content-Type", "application/json");
   callData.send(JSON.stringify(data));
@@ -154,8 +153,8 @@ const deleteContents = async (idx, year, month, date) => {
     idx: idx,
   };
   let deleteRequest = new XMLHttpRequest();
-  //deleteRequest.open("POST", "http://localhost:3003/delete");
-  deleteRequest.open("POST", "http://consolecalendar.duckdns.org/api/delete");
+  deleteRequest.open("POST", "http://localhost:3003/delete");
+  //deleteRequest.open("POST", "http://consolecalendar.duckdns.org/api/delete");
   //배포용 주소
   deleteRequest.setRequestHeader("Content-Type", "application/json");
   deleteRequest.send(JSON.stringify(data));
@@ -177,7 +176,8 @@ const addContents = async (year, month, day) => {
     if (String(data.date).length == 1) data.date = "0" + data.date;
     if (String(data.month).length == 1) data.month = "0" + data.month;
     let addtodo = new XMLHttpRequest();
-    addtodo.open("POST", "http://consolecalendar.duckdns.org/api/add");
+    //addtodo.open("POST", "http://consolecalendar.duckdns.org/api/add");
+    addtodo.open("POST", "http://localhost:3003/add");
     addtodo.setRequestHeader("Content-Type", "application/json");
     addtodo.send(JSON.stringify(data));
     await sleep(200);

@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
 
 let outdata = [];
 connection.connect();
-router.get("/", function (req, res) {
+router.post("/", function (req, res) {
   let lastday = new Date(req.body.year,req.body.month+1,0).getDate();
   let q = req.body.month++;
   if(req.body.month.toString().length==1) req.body.month = '0'+req.body.month;

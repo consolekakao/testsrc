@@ -17,18 +17,13 @@ var connection = mysql.createConnection({
 
 let outdata = [];
 connection.connect();
-router.get("/", function (req, res) {
+router.post("/", function (req, res) {
   let lastday = new Date(req.body.year, req.body.month + 1, 0).getDate();
   let q = req.body.month++;
   if (req.body.month.toString().length == 1)
     req.body.month = "0" + req.body.month;
 
   if (req.body.day.toString().length == 1) req.body.day = "0" + req.body.day;
-  console.log(req.body);
-
-  console.log(
-    `SELECT * FROM calendar where sindex = "${req.body.year}-${req.body.month}-${req.body.day}"`
-  );
   connection.query(
     `SELECT * FROM calendar where sindex = "${req.body.year}-${req.body.month}-${req.body.day}"`,
     function (err, rows) {
