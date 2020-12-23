@@ -85,7 +85,19 @@ const setting = (year, month) => {
     document.getElementsByClassName(
       `thisMonthDay ${today.getDate() - 1}`
     )[0].innerHTML += `<br/><span style="margin-left: -5px;">Today</span>`;
+}
+ 
+  let commingtodo = new XMLHttpRequest();
+  commingtodo.open("POST","http://localhost:3003/commingtodo",false);
+  commingtodo.send();
+  console.log(commingtodo);
+  document.getElementById("willTodo3Day").innerHTML = "";
+  for( let i = 0; i < JSON.parse(commingtodo.responseText).length; i++){
+    document.getElementById("willTodo3Day").innerHTML += `<div>${decodeURI(JSON.parse(commingtodo.responseText)[i].contents)}</div>`
   }
+
+  
+
 };
 
 let SetYear, SetMonth;
@@ -186,6 +198,11 @@ const addContents = async (year, month, day) => {
     clickDay(year, month, day);
   }
 };
+
+
+
+
+
 
 function sleep(ms) {
   //딜레이함수
