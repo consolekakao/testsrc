@@ -140,9 +140,15 @@ hr {
 #willTodo3Day,
 #willTodoWeek {
   width: 90%;
-  height: 50px;
-
+  height: 80px;
+  overflow: scroll;
   margin-left: 5%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+#willTodoWeek::-webkit-scrollbar,
+#willTodo3Day::-webkit-scrollbar {
+  display: none;
 }
 
 #willTodo3Day {
