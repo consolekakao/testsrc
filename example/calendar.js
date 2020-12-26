@@ -90,13 +90,19 @@ const setting = (year, month) => {
   let commingtodo = new XMLHttpRequest();
   commingtodo.open("POST","http://localhost:3003/commingtodo",false);
   commingtodo.send();
-  console.log(commingtodo);
   document.getElementById("willTodo3Day").innerHTML = "";
   for( let i = 0; i < JSON.parse(commingtodo.responseText).length; i++){
     document.getElementById("willTodo3Day").innerHTML += `<div>${decodeURI(JSON.parse(commingtodo.responseText)[i].contents)}</div>`
   }
 
-  
+  let commingtodoweek = new XMLHttpRequest();
+  commingtodoweek.open("POST","http://localhost:3003/commingtodo",false);
+  commingtodoweek.send();
+  console.log(commingtodoweek);
+  document.getElementById("willTodoWeek").innerHTML = "";
+  for( let i = 0; i < JSON.parse(commingtodoweek.responseText).length; i++){
+    document.getElementById("willTodoWeek").innerHTML += `<div>${decodeURI(JSON.parse(commingtodoweek.responseText)[i].contents)}</div>`
+  }
 
 };
 
